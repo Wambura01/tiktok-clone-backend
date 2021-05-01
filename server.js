@@ -5,10 +5,11 @@ import Videos from "./dbModel.js";
 
 //app config
 const app = express(); //instantiating app
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 //middlewares
 app.use(express.json()); //to parse responses as json
+//setting headers for every request
 app.use((req, res, next) => {
   res.setHeaders("Access-Control-Allow-Origin", "*");
   res.setHeaders("Access-Control-Allow-Headers", "*");
